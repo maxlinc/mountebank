@@ -20,7 +20,8 @@ function create (options) {
             'tcp': require('./models/tcp/tcpServer').initialize(options.allowInjection),
             'http': require('./models/http/httpServer').initialize(options.allowInjection),
             'https': require('./models/https/httpsServer').initialize(options.allowInjection),
-            'smtp': require('./models/smtp/smtpServer').initialize()
+            'smtp': require('./models/smtp/smtpServer').initialize(),
+            'ssh': require('./models/ssh/sshServer').initialize()
         },
         logger = ScopedLogger.create(winston, util.format('[mb:%s] ', options.port)),
         impostersController = ImpostersController.create(protocols, imposters, Imposter, logger),
